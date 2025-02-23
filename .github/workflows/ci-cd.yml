@@ -53,9 +53,10 @@ jobs:
       - name: Install snforge
         run: |
           if ! command -v snforge &> /dev/null; then
-            cargo install --locked --git https://github.com/foundry-rs/starknet-foundry \
+            cargo install --git https://github.com/foundry-rs/starknet-foundry \
               --tag v0.33.0 \
-              --bin snforge \
+              --package snforge \
+              --locked \
               --features=rust-serde
           fi
           echo "Installed snforge version: $(snforge --version)"
